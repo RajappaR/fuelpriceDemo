@@ -1,0 +1,64 @@
+{
+  "data":[
+    {
+      "id": 1,
+      "city": "Bangalore",
+      "petrol": {
+        "curDay": 73.59,
+        "prvDay": 73
+      },
+      "diesel": {
+        "curDay": 63.93,
+        "prvDay": 63.53
+      }
+    },
+    {
+      "id": 2,
+      "city": "Hyderabad",
+      "petrol": {
+        "curDay": 73.59,
+        "prvDay": 73
+      },
+      "diesel": {
+        "curDay": 63.93,
+        "prvDay": 63.53
+      }
+    },
+    {
+      "id": 3,
+      "city": "Chennai",
+      "petrol": {
+        "curDay": 73.59,
+        "prvDay": 73
+      },
+      "diesel": {
+        "curDay": 63.93,
+        "prvDay": 63.53
+      }
+    },
+    {
+      "id": 4,
+      "city": "Pune",
+      "petrol": {
+        "curDay": 73.59,
+        "prvDay": 73
+      },
+      "diesel": {
+        "curDay": 63.93,
+        "prvDay": 63.53
+      }
+    },
+    {
+      "id": 1,
+      "city": "Delhi",
+      "petrol": {
+        "curDay": 73.59,
+        "prvDay": 73
+      },
+      "diesel": {
+        "curDay": 63.93,
+        "prvDay": 63.53
+      }
+    }
+  ]
+}

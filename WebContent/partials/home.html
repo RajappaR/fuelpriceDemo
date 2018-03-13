@@ -1,0 +1,84 @@
+
+<div class="section">
+
+    <div class="container">
+
+        <div class="row">
+        
+        <div class="col-md-3">
+        </div>
+        <div class="col-md-6">
+    <select name="citySelect" id="citySelect" ng-model="city" class="form-control">
+      <option value="">---Please City---</option> <!-- not selected / blank option -->
+      <option ng-repeat="city in cities"value="{{city}}">{{city}}</option>
+    </select>
+       <!--  <br>
+            <select name="fuelTypeSelect" id="fuelTypeSelect" ng-model="fuelType" class="form-control">
+      <option value="">---Please Fuel Type---</option> not selected / blank option
+      <option value="Petrol">Petrol</option> interpolation
+      <option value="Diesel">Diesel</option>
+    </select> -->
+        <br>
+        <a class="btn btn-success form-control" ng-click="fetch(city)"> Get Fuel Price</a>
+        </div>
+        <div class="col-md-3">
+        </div>
+            
+        </div>
+        <!-- /.row -->
+
+    </div>
+    <!-- /.container -->
+    <br>
+    <div class="container" ng-show="showPrice">
+    <div class="row">
+    <div class="col-md-3"></div>
+    <div class="col-md-6">
+    <div class="row" align="center">
+    <h3>Fuel Price in {{city}}</h3>
+    </div>
+    <div class="row">
+        <div class="col-md-6">
+      <div class="panel panel-danger">
+    <div class="panel-heading">Previous Day Fuel Price</div>
+    <div class="panel-body">
+    <label>Date : </label> 02 Mar 2018<br>
+    
+    <label>Petrol (in INR) : </label> {{fuelData.petrol.prvDay}}<br>
+    <label>Diesel (in INR) : </label> {{fuelData.diesel.prvDay}}<br>
+    </div>
+  </div>
+    </div>
+    <div class="col-md-6">
+      <div class="panel panel-success">
+    <div class="panel-heading">Current Day Fuel Price</div>
+    <div class="panel-body">
+
+
+    <label>Current Date : </label> 03 Mar 2018<br>
+    <label>Petrol (in INR) : </label> {{fuelData.petrol.curDay}} <i class="fa fa-arrow-up" style="color: green;"></i> <sub><strong>{{change(fuelData.petrol.curDay,fuelData.petrol.prvDay)}}</strong></sub><br>
+    <label>Diesel (in INR) : </label> {{fuelData.diesel.curDay}} <i class="fa fa-arrow-down" style="color: red;"></i><sub><strong>{{change(fuelData.diesel.curDay,fuelData.diesel.prvDay)}}</strong></sub><br>
+
+  
+    
+    </div>
+  </div>
+    </div>
+</div>
+
+    </div>
+    <div class="col-md-3"></div>
+    </div>
+    </div>
+    
+    <div class="container">
+    <div class="row">
+    <div class="col-md-3"></div>
+    <div class="col-md-6"><a class="btn btn-info form-control" href="#/contact">see Nearest Petrol Pump</a></div>
+    <div class="col-md-3"></div>
+    
+    </div>
+    </div>
+
+</div>
+<!-- /.section -->
