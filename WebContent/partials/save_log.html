@@ -2,45 +2,85 @@
 
 	<div class="row">
 
+		<div class="col-lg-12">
+			<h1 class="page-header">Save Log</h1>
+			<ol class="breadcrumb">
+				<li><a href="../index.html">Home</a></li>
+				<li class="active">Save Log</li>
+			</ol>
+		</div>
+		</div>
+
+	<div class="row">
+
 		<div class="col-md-3"></div>
 		<div class="col-md-6">
 			<div class="panel panel-info">
 				<div class="panel-heading">Enter Details</div>
 				<div class="panel-body">
 
-					<!-- <form ng-submit="submitDetails(logDetails)"> -->
+					 <form ng-submit="submitDetails(logDetails)" name="logForm" id="logForm" novalidate>
 						<div class="form-group">
-							<label for="name">Gas Station Name</label> <input type="text"
-								class="form-control" id="name" ng-model="name" placeholder="Gas Station Name" required="required">
-
+						<div class="col-md-12" ng-class="{ 'has-error' : logForm.name.$invalid && !logForm.name.$pristine }">
+						<div class="input-group">
+                  <span class="input-group-addon"><i class="fa fa-user"></i></span>
+							<!-- <label for="name">Gas Station Name</label>  --><input type="text"
+								class="form-control" id="name" name="name" ng-model="logDetails.name" placeholder="Gas Station Name" required ng-pattern="/^[a-zA-Z\s]*$/">
+							<span ng-show="logForm.name.$invalid && !logForm.name.$pristine" class="help-block">Enter a valid Name</span>
+						</div>
+						</div>
 						</div>
 						<div class="form-group">
-							<label for="mobile">Mobile no</label> <input type="text"
-								class="form-control" id="amount" ng-model="mobile" placeholder="Enter Your Mobile" required="required">
+						<div class="col-md-12" ng-class="{ 'has-error' : logForm.mobile.$invalid && !logForm.mobile.$pristine }" style="margin-top: 2%;">
+							<div class="input-group">
+                  <span class="input-group-addon"><i class="fa fa-phone"></i></span><!-- <label for="mobile">Mobile no</label>  --><input type="text"
+								class="form-control" id="mobile" name="mobile" ng-model="logDetails.mobile" placeholder="Enter Your Mobile" required ng-pattern="/^\+?\d{2}[- ]?\d{3}[- ]?\d{5}$/">
+								<span ng-show="logForm.mobile.$invalid && !logForm.mobile.$pristine" class="help-block">Enter a valid Mobile no</span>
+								</div>
+								</div>
 						</div>
 						<div class="form-group">
-							<label for="amount">Amount</label> <input type="number"
-								class="form-control" id="amount" ng-model="amount" placeholder="Enter Amount Paid" required="required">
+						<div class="col-md-12" ng-class="{ 'has-error' : logForm.amount.$invalid && !logForm.amount.$pristine }"  style="margin-top: 2%;">
+							<div class="input-group">
+                  <span class="input-group-addon"><i class="fa fa-rupee"></i></span><!-- <label for="amount">Amount</label>  --><input type="number"
+								class="form-control" id="amount" name="amount" ng-model="logDetails.amount" placeholder="Enter Amount Paid" required>
+								<span ng-show="logForm.amount.$invalid && !logForm.amount.$pristine" class="help-block">Enter Amount</span>
+						</div>
+						</div>
 						</div>
 						<div class="form-group">
-							<label for="ltrs">Liters</label> <input type="number"
-								class="form-control" id="ltrs" ng-model="ltrs" placeholder="Enter Liters" required="required">
+						<div class="col-md-12" ng-class="{ 'has-error' : logForm.ltrs.$invalid && !logForm.ltrs.$pristine }"  style="margin-top: 2%;">
+							<!-- <label for="ltrs">Liters</label>  -->
+							<div class="input-group">
+                  <span class="input-group-addon"><i class="fab fa-rupee"></i></span><input type="number"
+								class="form-control" id="ltrs" name="ltrs" ng-model="logDetails.ltrs" placeholder="Enter Liters" required>
+								<span ng-show="logForm.ltrs.$invalid && !logForm.ltrs.$pristine" class="help-block">Enter no liters</span>
+								</div>
+								</div>
 						</div>
 						<div class="form-group">
-							<label for="fueltype">Fuel Type</label>
+						<div class="col-md-12" ng-class="{ 'has-error' : logForm.fuelTypeSelect.$invalid && !logForm.fuelTypeSelect.$pristine }"  style="margin-top: 2%;">
+							
 						<select name="fuelTypeSelect" id="fuelTypeSelect"
-							ng-model="fueltype" class="form-control" required="required">
-							<option value="">---Please Fuel Type---</option>
+							ng-model="logDetails.fueltype" class="form-control" required>
+							<option value="">--select Fuel Type--</option>
 							<option value="Petrol">Petrol</option>
 							<option value="Diesel">Diesel</option>
 						</select>
+						<span ng-show="logForm.fuelTypeSelect.$invalid && !logForm.fuelTypeSelect.$pristine" class="help-block">Enter Select Fuel Type</span>
+						</div>
 						</div>
 						
 						<div class="form-group">
-							<label for="comments">Comments</label> <textarea rows="4" ng-model="comments" class="form-control" placeholder="Comments" required="required"></textarea>
+						<div class="col-md-12" ng-class="{ 'has-error' : logForm.comments.$invalid && !logForm.comments.$pristine }"  style="margin-top: 2%;">
+							<textarea rows="4" ng-model="logDetails.comments" class="form-control" name="comments" id="comments" placeholder="Comments" required></textarea>
+							<span ng-show="logForm.comments.$invalid && !logForm.comments.$pristine" class="help-block">Enter Comments</span>
+							</div>
 						</div>
-						<button type="submit" class="btn btn-primary" ng-click="submitDetails(name,amount,ltrs,fueltype)">Submit</button>
-					<!-- </form> -->
+						<div class="col-md-12" style="margin-top: 2%;">
+						<button type="submit" class="btn btn-primary" ng-disabled="logForm.$invalid" ng-click="submitDetails()">Submit <span class="glyphicon glyphicon-send"></span></button>
+					 	</div>
+					 </form>
 
 				</div>
 			</div>

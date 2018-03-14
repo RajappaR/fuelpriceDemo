@@ -18,10 +18,14 @@
 	<div class="row">
 	<div class="col-md-3"></div>
 	<div class="col-md-6">
-	{{getLogs()}}
-	<div class="well" ng-repeat="log in getLogs()">
+	<div class="well" ng-repeat="log in logDetails">
 	
-	<strong>Date :</strong> {{log.name}}<br>
+	<strong>Date :</strong> {{log.logDate}}<br>
+	<strong>Station name :</strong> {{log.station_name}}<br>
+	<strong>Amount :</strong> {{log.amount}}<br>
+	<strong>Liters :</strong> {{log.liters}}<br>
+	<strong>Comments :</strong> {{log.comments}}<br>
+	
 	
 	</div>
 	

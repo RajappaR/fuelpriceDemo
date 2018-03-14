@@ -16,6 +16,66 @@
       "id": 2,
       "city": "Hyderabad",
       "petrol": {
+        "curDay": 72.06,
+        "prvDay": 74.01
+      },
+      "diesel": {
+        "curDay": 61.36,
+        "prvDay": 62.93
+      }
+    },
+    {
+      "id": 3,
+      "city": "Chennai",
+      "petrol": {
+        "curDay": 74.86,
+        "prvDay": 73.54
+      },
+      "diesel": {
+        "curDay": 66.86,
+        "prvDay": 65.56
+      }
+    },
+    {
+      "id": 4,
+      "city": "Pune",
+      "petrol": {
+        "curDay": 69.92,
+        "prvDay": 68.56
+      },
+      "diesel": {
+        "curDay": 59.38,
+        "prvDay": 60.53
+      }
+    },
+    {
+      "id": 5,
+      "city": "Delhi",
+      "petrol": {
+        "curDay": 77.56,
+        "prvDay": 78.45
+      },
+      "diesel": {
+        "curDay": 68.39,
+        "prvDay": 69.85
+      }
+    },
+    {
+      "id": 6,
+      "city": "Dharwad",
+      "petrol": {
+        "curDay": 73.59,
+        "prvDay": 73.00
+      },
+      "diesel": {
+        "curDay": 63.30,
+        "prvDay": 63.53
+      }
+    },
+    {
+      "id": 2,
+      "city": "Mysuru",
+      "petrol": {
         "curDay": 73.59,
         "prvDay": 73.00
       },
@@ -26,19 +86,19 @@
     },
     {
       "id": 3,
-      "city": "Chennai",
+      "city": "Kolkata",
       "petrol": {
-        "curDay": 73.59,
-        "prvDay": 73.00
+        "curDay": 71.79,
+        "prvDay": 72.08
       },
       "diesel": {
-        "curDay": 63.30,
+        "curDay": 64.31,
         "prvDay": 63.53
       }
     },
     {
       "id": 4,
-      "city": "Pune",
+      "city": "Mangaluru",
       "petrol": {
         "curDay": 73.59,
         "prvDay": 73.00
@@ -49,16 +109,16 @@
       }
     },
     {
-      "id": 1,
-      "city": "Delhi",
+      "id": 5,
+      "city": "Mumbai",
       "petrol": {
-        "curDay": 73.59,
-        "prvDay": 73.00
+        "curDay": 79.49,
+        "prvDay": 78.04
       },
       "diesel": {
-        "curDay": 63.30,
-        "prvDay": 63.53
+        "curDay": 69.34,
+        "prvDay": 69.56
       }
-    }
+    }    
   ]
 }

@@ -42,43 +42,43 @@ app.controller('LogCtrl', function($scope, $location, $http,$cookies) {
 	/*
 	 * This function is used to submit the Logs.
 	 */
-	$scope.submitDetails = function(name,amount,ltrs,fueltype){
-		//console.log(log);
-		//log.date = new Date();
-		var log ={
-				date : formatDate(new Date()),
-				station_name : name,
-				amount : amount,
-				liters : ltrs,
-				coments : fueltype,
-				mobile : 9620676067
-		}
-		var data = "?date="+log.date+"&station_name="+log.station_name+"&amount="+log.amount+"liters"+log.liters+"&coments="+log.coments+"&mobile"+log.mobile;
+	$scope.submitDetails = function(log){
+		
 		//http request to backend to sumbit the Logs to DB
-		var req = {
+		console.log(log);
+		log.date = formatDate(new Date());
+		console.log(log);
+		alert("Log Information Saved Succefully");
+		$location.path("/");
+		
+		//
+		
+		/*var req = {
 				 method: 'POST',
-				 url: 'http://yashwintoursandtravels.in/save_logs.php',
+				 url: 'Backend REST url',
 				 headers: {
 				   'Content-Type': undefined,
 				   'Access-Control-Allow-Origin' : '*'
 				 },
-				 data : log,
-				 dataType: "jsonp"
-				 
+				 data : log,				 
 				}
 
 				$http(req).then(function(data){
 					console.log(data)
 				}, function(){
 					console.log("Failure");
-				});		
+				});		*/
 	}
 	/*
 	 * This function is used to get the Logs.
 	 */
-	$scope.getLogs = function(){
-		return $scope.logDetails;
-	}
+	
+		$http.get("./logs.json").success(
+				function(data) {
+					$scope.logDetails = data.data;
+					//$scope.$apply();
+				});
+
 	
 	/*
 	 * This function is used to convert the date to our specified format.
@@ -109,7 +109,7 @@ app.controller('MapCtrl', function($scope, $location, $http,$cookies,$anchorScro
 	var markers = [];
 	
 	//assigning current location stored in cokkies to local variable
-	$scope.center = $cookies.get("curLoc");
+	$scope.center =$cookies.get("curLoc");
 	
 	/*
 	 * This function is used to get Near by Gas stations by using 
@@ -151,6 +151,7 @@ app.controller('MapCtrl', function($scope, $location, $http,$cookies,$anchorScro
 	}
 	//calling places api service API
 	initialize();
+	$scope.showInfo = false;
 	/*
 	 * This function is used to Display the Gas station details when marker clicked.
 	 */
@@ -160,13 +161,17 @@ app.controller('MapCtrl', function($scope, $location, $http,$cookies,$anchorScro
 	          placeId: pin.place_id
 	        }, function(place, status) {
 	          if (status === google.maps.places.PlacesServiceStatus.OK) {
-	            	 console.log(place);         
+	            	 console.log(place);  
+	            	 
 	            	 $scope.currentPin = place;
+	            	 $scope.showInfo = true;
+	            	 $scope.$apply();
+	            	 $anchorScroll();
 	          }
 	        });
 	      // call $anchorScroll()
-	      $anchorScroll();
-		console.log(pin);
+	      
+		//console.log(pin);
 	};
 
 });
@@ -210,19 +215,25 @@ app.controller('HomeCtrl', function($scope, $location, $http,$window,$cookies) {
 		}
 
 	//Initializing cities	
-	$scope.cities = [ "Bengaluru", "Hyderabad", "Chennai", "Pune", "Delhi" ];
+	$scope.cities = [];
+	$http.get("./city.json").success(
+			function(data) {
+				console.log(data)
+				$scope.cities = data.data;
+			});
 	$scope.showPrice = false;
 	$scope.fuelData = null;
 	$scope.fetch = function(city) {
 		//console.log(city);
 		//Getting Fuel Price from JSON
-		$http.get("/FuelPrice/data.json").success(
+		$http.get("./data.json").success(
 			function(data) {
 				console.log(data)
 				angular.forEach(data.data, function(value, key) {
 					console.log(key + ': ' + value.city);
 					if (value.city == city) {
 						$scope.fuelData = value;
+						$scope.selectedcity = $scope.city;
 						$scope.showPrice = true;
 					}
 				});
@@ -266,4 +277,11 @@ app.controller('HomeCtrl', function($scope, $location, $http,$window,$cookies) {
 	      }
 	    });
 	}
+	var d = new Date();
+	$scope.currDate = formatDate(d);
+	d.setDate(d.getDate()-1);
+	$scope.prvDate = formatDate(d);
+	function formatDate(date) {
+		  return  date.getDate() + "/" + (date.getMonth()+1) + "/" +date.getFullYear();
+		}
 });

@@ -25,14 +25,14 @@
 	</div>
 	<br>
 	
-	<div class="row">
+	<div class="row" ng-show="showInfo" id="bottom">
 	
-	<div class="col-md-12" id="bottom">
+	<div class="col-md-12" >
 	      <div class="panel panel-success">
     <div class="panel-heading">{{currentPin.name}}</div>
     <div class="panel-body">
     <strong>Name : </strong>{{currentPin.name}}<br>
-    <strong>Address : </strong>{{currentPin.formatted_address}}<br>
+    <strong>Address : </strong><p>{{currentPin.formatted_address}}</p>
     
     <strong>Phone No : </strong><a href="tel:{{formatted_phone_number}}">{{currentPin.formatted_phone_number}}</a><br>
     <strong>Rating : </strong> {{currentPin.rating}}/5<br>
@@ -41,12 +41,13 @@
     <strong>Timings : </strong> <br><p ng-repeat="time in currentPin.opening_hours.weekday_text">&nbsp;&nbsp;&nbsp;&nbsp;{{time}}</p><br>
     
     <!-- <strong>Place Id : </strong>{{currentPin.place_id}}<br> -->
+    <a class="btn btn-info form-control" href="http://maps.google.com/maps?daddr={{currentPin.geometry.location.lat()}},{{currentPin.geometry.location.lng()}}"> Get Directions</a>
     <strong>Reviews</strong><br>
     <div class="well" ng-repeat="review in currentPin.reviews">
     <div class="container-fluid">
     <div class="row">
-    <div class="col-md-3"> <img src="{{review.profile_photo_url}}" class="img-rounded" height="70px" width="70px" > </div>
-    <div class="col-md-9"> <label>{{review.author_name}}</label><br>
+    <div class="col-md-2"> <img src="{{review.profile_photo_url}}" class="img-rounded user-profile-img"> </div>
+    <div class="col-md-10"> <label>{{review.author_name}}</label><br>
     <p>{{review.text}}</p>
     <strong> Rating </strong> {{review.rating}} /5<br>
     <p>{{review.relative_time_description}}</p>
@@ -55,7 +56,7 @@
     </div>
     </div>
     </div>
-    <a class="btn btn-info" href="http://maps.google.com/maps?daddr={{currentPin.geometry.location.lat()}},{{currentPin.geometry.location.lng()}}"> Get Directions</a>
+    
     </div>
     </div>
     

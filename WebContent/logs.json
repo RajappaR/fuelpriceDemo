@@ -1,0 +1,41 @@
+{
+  "data":[
+    {
+      "id": 1,
+      "mobile": "9620676067",
+      "station_name" : "HP Petrol Pump, Kasturi Nagar",
+      "logDate" : "14 March 2018",
+      "amount" : 500,
+      "liters" : 7,
+      "comments" : "Reserved Fuel 1 Ltr, So currently 8 ltrs of fuel in Bike"
+    },
+    {
+      "id": 2,
+      "mobile": "9620676067",
+      "station_name" : "Shell Petrol Bunk, Jakkur",
+      "logDate" : "10 March 2018",
+      "amount" : 340,
+      "liters" : 4,
+      "comments" : "Till 13th Of No need of Fueling"
+    },
+    {
+      "id": 4,
+      "mobile": "9620676067",
+      "station_name" : "Shell Petrol Bunk, Tanisandra",
+      "logDate" : "08 March 2018",
+      "amount" : 70,
+      "liters" : 1,
+      "comments" : "Low Fuel in Bike"
+    },
+    {
+      "id": 5,
+      "mobile": "9620676067",
+      "station_name" : "Shell Petrol Bunk, Tanisandra",
+      "logDate" : "03 March 2018",
+      "amount" : 700,
+      "liters" : 10,
+      "comments" : "Going for Long trip, Tank Full, KM Reading is 7650 Km, check milage after returning"
+    }
+        
+  ]
+}
